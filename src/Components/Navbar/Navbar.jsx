@@ -3,10 +3,11 @@ import mobileLogo from "/mobile-logo.png";
 import logo from "/logo-green.png";
 import "./navbar.css";
 import { Link, NavLink } from "react-router";
+import Container from "../Container/Container";
 const Navbar = () => {
   return (
     <nav className="py-2 bg-base-100 shadow-sm sticky top-0 z-50">
-      <div className="navbar 2xl:w-10/12 mx-auto">
+      <div className="navbar md:w-11/12 2xl:w-10/12 mx-auto">
         <div className="navbar-start">
           <a>
             <img
