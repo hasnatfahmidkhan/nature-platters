@@ -7,11 +7,12 @@ import axios from "axios";
 import SpinnerCircle from "../Components/SpinnerCircle/SpinnerCircle";
 import Cart from "../Components/Cart/Cart";
 import FoodsLayout from "../Layouts/FoodsLayout";
-import Foods from "../Pages/Foods/Foods";
-
+import RandomFoods from "../Pages/RandomFoods/RandomFoods";
+import FoodByCategory from "../Pages/FoodByCategory/FoodByCategory";
 export const Router = createBrowserRouter([
   {
     path: "/",
+    HydrateFallback: SpinnerCircle,
     Component: RootLayout,
     children: [
       {
@@ -21,7 +22,29 @@ export const Router = createBrowserRouter([
       {
         path: "/foods",
         Component: FoodsLayout,
-        
+        children: [
+          {
+            index: true,
+            Component: RandomFoods,
+
+            loader: async () => {
+              const res = await axios.get(
+                " https://taxi-kitchen-api.vercel.app/api/v1/foods/random"
+              );
+              return { foods: res.data.foods };
+            },
+          },
+          {
+            path: "/foods/:foodId",
+            loader: async ({ params }) => {
+              const res = await axios.get(
+                ` https://taxi-kitchen-api.vercel.app/api/v1/categories/${params.foodId}`
+              );
+              return { foods: res?.data?.foods };
+            },
+            Component: FoodByCategory,
+          },
+        ],
         // HydrateFallback: SpinnerCircle,
         // loader: async () => {
         //   const [foodsRes, categoriesRes] = await Promise.all([

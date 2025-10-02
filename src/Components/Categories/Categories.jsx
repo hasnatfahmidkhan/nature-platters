@@ -3,7 +3,7 @@ import Category from "../Category/Category";
 
 const Categories = ({ categoriesPromise }) => {
   const { categories } = use(categoriesPromise).data;
-  console.log(categories);
+
   return (
     <div className="flex items-center gap-5 flex-wrap">
       {categories.map((cat) => (

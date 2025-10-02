@@ -2,7 +2,7 @@ import React from "react";
 
 const FoodCard = ({ food }) => {
   return (
-    <div id="${tree.id}" className="card p-4 bg-white h-fit shadow-sm ">
+    <div id="${tree.id}" className="card p-4 bg-white shadow-md h-full">
       <figure className="h-40 rounded-xl">
         <img src={`${food.foodImg}`} alt="" loading="lazy" />
       </figure>
