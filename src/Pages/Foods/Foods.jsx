@@ -1,5 +1,7 @@
+import Container from "../../Components/Container/Container";
+
 const Foods = () => {
-  return <div>Foods</div>;
+  return <Container></Container>;
 };
 
 export default Foods;
