@@ -5,7 +5,7 @@ const Category = ({ cat }) => {
     <li className="category">
       <NavLink
         to={`/foods/${cat.id}`}
-        className="border border-green-600 px-4 rounded-full cursor-pointer btn"
+        className="border border-green-700 px-4 rounded-full cursor-pointer btn hover:bg-green-700 hover:text-white"
       >
         {cat.categoryName}
       </NavLink>

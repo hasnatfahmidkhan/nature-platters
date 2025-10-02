@@ -5,11 +5,15 @@ import SpinnerCircle from "../Components/SpinnerCircle/SpinnerCircle";
 
 const RootLayout = () => {
   const navigation = useNavigation();
-
+  // Show spinner for ALL navlink clicks (root-level navigation)
+  // but NOT when clicking inside foods categories
+  const isNavLinkClick =
+    navigation.state === "loading" &&
+    !navigation.location?.pathname.startsWith("/foods/");
   return (
     <>
       <Navbar />
-      {navigation.state === "loading" ? (
+      {isNavLinkClick ? (
         <SpinnerCircle />
       ) : (
         <main className="min-h-[calc(100vh-330px)]">
