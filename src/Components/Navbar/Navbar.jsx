@@ -2,6 +2,7 @@ import { Menu, Search, ShoppingCart } from "lucide-react";
 import mobileLogo from "/mobile-logo.png";
 import logo from "/logo-green.png";
 import "./navbar.css";
+import { Link, NavLink } from "react-router";
 const Navbar = () => {
   return (
     <nav className="py-2 bg-base-100 shadow-sm sticky top-0 z-50">
@@ -24,16 +25,16 @@ const Navbar = () => {
         <div className="navbar-center hidden lg:flex">
           <ul className="flex gap-8 text-xl ">
             <li>
-              <a to="/">Home</a>
+              <NavLink to="/">Home</NavLink>
             </li>
             <li>
-              <a to="/foods">Foods</a>
+              <NavLink to="/foods">Foods</NavLink>
             </li>
             <li>
-              <a to="/services">Services</a>
+              <NavLink to="/services">Services</NavLink>
             </li>
             <li>
-              <a to="/contact">Contact Us</a>
+              <NavLink to="/contact">Contact Us</NavLink>
             </li>
           </ul>
         </div>
@@ -50,10 +51,12 @@ const Navbar = () => {
                 role="button"
                 className="btn btn-ghost btn-circle"
               >
-                <div className="indicator">
-                  <ShoppingCart />
-                  <span className="badge badge-sm indicator-item">0</span>
-                </div>
+                <Link to="/cart">
+                  <div className="indicator">
+                    <ShoppingCart />
+                    <span className="badge badge-sm indicator-item">0</span>
+                  </div>
+                </Link>
               </div>
             </div>
           </div>
@@ -68,16 +71,16 @@ const Navbar = () => {
               className="menu menu-lg  dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow text"
             >
               <li>
-                <a to="/">Home</a>
+                <NavLink to="/">Home</NavLink>
               </li>
               <li>
-                <a to="/foods">Foods</a>
+                <NavLink to="/foods">Foods</NavLink>
               </li>
               <li>
-                <a to="/services">Services</a>
+                <NavLink to="/services">Services</NavLink>
               </li>
               <li>
-                <a to="/contact">Contact Us</a>
+                <NavLink to="/contact">Contact Us</NavLink>
               </li>
               <li>
                 <a to="/login">Login</a>
