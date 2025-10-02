@@ -5,11 +5,11 @@ const Categories = ({ categoriesPromise }) => {
   const { categories } = use(categoriesPromise).data;
 
   return (
-    <div className="flex items-center gap-5 flex-wrap">
+    <ul className="flex items-center gap-5 flex-wrap">
       {categories.map((cat) => (
         <Category key={cat.id} cat={cat} />
       ))}
-    </div>
+    </ul>
   );
 };
 

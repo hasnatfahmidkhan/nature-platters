@@ -1,3 +1,4 @@
-a.active {
-  color: red;
+@import "tailwindcss";
+.category a.active {
+  @apply bg-green-700 text-white;
 }
