@@ -6,6 +6,7 @@ import Foods from "../Pages/Foods/Foods";
 import Services from "../Pages/Services/Services";
 import axios from "axios";
 import SpinnerCircle from "../Components/SpinnerCircle/SpinnerCircle";
+import Cart from "../Components/Cart/Cart";
 
 export const Router = createBrowserRouter([
   {
@@ -40,6 +41,10 @@ export const Router = createBrowserRouter([
       {
         path: "/contact",
         Component: Contact,
+      },
+      {
+        path: "cart",
+        Component: Cart,
       },
     ],
   },
