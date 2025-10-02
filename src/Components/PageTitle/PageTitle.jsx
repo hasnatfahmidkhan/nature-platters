@@ -1,7 +1,5 @@
-import React from "react";
-
 const PageTitle = ({ title }) => {
-  document.title = { title };
+  document.title = title;
   return null;
 };
 
