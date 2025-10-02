@@ -22,6 +22,12 @@ export const Router = createBrowserRouter([
       {
         path: "/foods",
         Component: FoodsLayout,
+        loader: async () => {
+          const res = await axios.get(
+            "https://taxi-kitchen-api.vercel.app/api/v1/categories"
+          );
+          return { categories: res.data.categories };
+        },
         children: [
           {
             index: true,
@@ -29,7 +35,7 @@ export const Router = createBrowserRouter([
 
             loader: async () => {
               const res = await axios.get(
-                " https://taxi-kitchen-api.vercel.app/api/v1/foods/random"
+                "https://taxi-kitchen-api.vercel.app/api/v1/foods/random"
               );
               return { foods: res.data.foods };
             },
@@ -38,26 +44,13 @@ export const Router = createBrowserRouter([
             path: "/foods/:foodId",
             loader: async ({ params }) => {
               const res = await axios.get(
-                ` https://taxi-kitchen-api.vercel.app/api/v1/categories/${params.foodId}`
+                `https://taxi-kitchen-api.vercel.app/api/v1/categories/${params.foodId}`
               );
               return { foods: res?.data?.foods };
             },
             Component: FoodByCategory,
           },
         ],
-        // HydrateFallback: SpinnerCircle,
-        // loader: async () => {
-        //   const [foodsRes, categoriesRes] = await Promise.all([
-        //     axios.get(
-        //       "https://taxi-kitchen-api.vercel.app/api/v1/foods/random"
-        //     ),
-        //     axios.get(" https://taxi-kitchen-api.vercel.app/api/v1/categories"),
-        //   ]);
-        //   return {
-        //     foods: foodsRes?.data?.foods,
-        //     categories: categoriesRes?.data?.categories,
-        //   };
-        // },
       },
       {
         path: "/services",

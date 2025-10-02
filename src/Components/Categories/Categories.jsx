@@ -1,8 +1,6 @@
-import React, { use } from "react";
 import Category from "../Category/Category";
 
-const Categories = ({ categoriesPromise }) => {
-  const { categories } = use(categoriesPromise).data;
+const Categories = ({categories}) => {
 
   return (
     <ul className="flex items-center gap-5 flex-wrap">
