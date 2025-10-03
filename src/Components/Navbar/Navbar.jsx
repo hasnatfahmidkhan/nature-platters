@@ -3,8 +3,11 @@ import mobileLogo from "/mobile-logo.png";
 import logo from "/logo-green.png";
 import "./navbar.css";
 import { Link, NavLink } from "react-router";
-import Container from "../Container/Container";
+import { CartContext } from "../../Layouts/RootLayout";
+import { use } from "react";
 const Navbar = () => {
+  const { cart } = use(CartContext);
+
   return (
     <nav className="py-2 bg-base-100 shadow-sm sticky top-0 z-50">
       <div className="navbar md:w-11/12 2xl:w-10/12 mx-auto">
@@ -47,18 +50,20 @@ const Navbar = () => {
                 <Search />
               </div>
               {/* Cart icon  */}
-              <div
-                tabIndex="0"
-                role="button"
-                className="btn btn-ghost btn-circle"
-              >
-                <Link to="/cart">
+              <Link to="/cart">
+                <div
+                  tabIndex="0"
+                  role="button"
+                  className="btn btn-ghost btn-circle"
+                >
                   <div className="indicator">
                     <ShoppingCart />
-                    <span className="badge badge-sm indicator-item">0</span>
+                    <span className="badge badge-sm indicator-item">
+                      {cart.length}
+                    </span>
                   </div>
-                </Link>
-              </div>
+                </div>
+              </Link>
             </div>
           </div>
 

@@ -1,6 +1,9 @@
-import React from "react";
+import React, { use } from "react";
+import { CartContext } from "../../Layouts/RootLayout";
 
 const FoodCard = ({ food }) => {
+  const { handleCart } = use(CartContext);
+
   return (
     <div id="${tree.id}" className="card p-4 bg-white shadow-md h-full">
       <figure className="h-40 rounded-xl">
@@ -19,7 +22,10 @@ const FoodCard = ({ food }) => {
           </p>
         </div>
         <div className="card-actions justify-end mt-3">
-          <button className="btn bg-[#15803D] hover:bg-[#127737] text-white w-full rounded-full">
+          <button
+            onClick={() => handleCart(food)}
+            className="btn bg-[#15803D] hover:bg-[#127737] text-white w-full rounded-full"
+          >
             Add to Cart
           </button>
         </div>
