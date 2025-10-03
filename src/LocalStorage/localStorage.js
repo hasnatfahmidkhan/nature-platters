@@ -11,9 +11,8 @@ const saveMode = (mode) => {
   localStorage.setItem("theme", mode);
 };
 
-const setMode = (mode, setDarkMode) => {
+const setMode = (mode) => {
   saveMode(mode);
-  setDarkMode(mode);
 };
 
 export { getMode, setMode };
