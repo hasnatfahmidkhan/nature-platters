@@ -2,13 +2,14 @@ import { Menu, Moon, ShoppingCart, Sun } from "lucide-react";
 import mobileLogo from "/mobile-logo.png";
 import logo from "/logo-green.png";
 import "./navbar.css";
-import { Link, NavLink } from "react-router";
+import { NavLink, useNavigate } from "react-router";
 import { use, useState } from "react";
 import { CartContext } from "../../Provider/CartContext/CartContext";
 import { getMode, setMode } from "../../LocalStorage/localStorage";
 const Navbar = () => {
   const { cart } = use(CartContext);
   const [darkMode, setDarkMode] = useState(getMode() || false);
+  const navigate = useNavigate();
 
   return (
     <nav
@@ -69,7 +70,9 @@ const Navbar = () => {
                 </label>
               </div>
               {/* Cart icon  */}
-              <Link to="/cart">
+              {/* navigate a page usig navigate hook it's call programable
+              navigation */}
+              <button onClick={() => navigate("/cart")}>
                 <div
                   tabIndex="0"
                   role="button"
@@ -82,7 +85,7 @@ const Navbar = () => {
                     </span>
                   </div>
                 </div>
-              </Link>
+              </button>
             </div>
           </div>
 

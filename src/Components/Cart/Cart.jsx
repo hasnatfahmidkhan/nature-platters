@@ -18,11 +18,11 @@ const Cart = () => {
           No Cart Added
         </div>
       ) : (
-        <section className="max-w-1/2 mx-auto grid md:grid-cols-2 gap-6 py-8">
+        <section className="max-w-1/2 mx-auto grid md:grid-cols-2 gap-6 py-8 ">
           {cart.map((food) => (
             <div
               key={food.id}
-              className="p-1 bg-white flex gap-3 shadow rounded-xl relative py-2"
+              className="p-1 bg-white text-black flex gap-3 shadow rounded-xl relative py-2"
             >
               <div className="img">
                 <img

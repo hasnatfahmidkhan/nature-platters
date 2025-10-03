@@ -4,6 +4,11 @@ import Navbar from "../Components/Navbar/Navbar";
 import SpinnerCircle from "../Components/SpinnerCircle/SpinnerCircle";
 import { useState } from "react";
 import { CartContext } from "../Provider/CartContext/CartContext";
+import { ToastContainer } from "react-toastify";
+import {
+  CustomToastError,
+  CustomToastSuccess,
+} from "../Components/Toast/CustomToast";
 
 const RootLayout = () => {
   const navigation = useNavigation();
@@ -27,6 +32,7 @@ const RootLayout = () => {
     } else {
       setCart((prev) => [...prev, { ...food, quantity: 1 }]);
     }
+    CustomToastSuccess("Food added to the cart");
   };
 
   const handleIncreaseQuantity = (food) => {
@@ -51,6 +57,7 @@ const RootLayout = () => {
   const handleRemoveCart = (id) => {
     const filteredCart = cart.filter((elem) => elem.id !== id);
     setCart(filteredCart);
+    CustomToastError("Item remove from the cart");
   };
 
   const totalPrice = cart.reduce((acc, cur) => acc + cur.price, 0);
@@ -76,6 +83,7 @@ const RootLayout = () => {
         </main>
       )}
       <Footer />
+      <ToastContainer />
     </CartContext.Provider>
   );
 };
