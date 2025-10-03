@@ -5,7 +5,7 @@ const FoodCard = ({ food }) => {
   const { handleCart } = use(CartContext);
 
   return (
-    <div id="${tree.id}" className="card p-4 bg-white shadow-md h-full">
+    <div id="${tree.id}" className="card p-4 bg-white dark:text-black shadow-md h-full">
       <figure className="h-40 rounded-xl">
         <img src={`${food.foodImg}`} alt="" loading="lazy" />
       </figure>
@@ -14,7 +14,7 @@ const FoodCard = ({ food }) => {
           <h2 className="card-title mt-3 inline-block">{food.title}</h2>
         </div>
         <div className="flex justify-between items-center">
-          <div className="badge bg-green-200 text-[#15803D] font-medium">
+          <div className="badge border-none bg-green-200 text-[#15803D] font-medium">
             {food.category}
           </div>
           <p className="font-medium text-[#1F2937]">
@@ -24,7 +24,7 @@ const FoodCard = ({ food }) => {
         <div className="card-actions justify-end mt-3">
           <button
             onClick={() => handleCart(food)}
-            className="btn bg-[#15803D] hover:bg-[#127737] text-white w-full rounded-full"
+            className="btn border-none bg-[#15803D] hover:bg-[#127737] text-white w-full rounded-full"
           >
             Add to Cart
           </button>

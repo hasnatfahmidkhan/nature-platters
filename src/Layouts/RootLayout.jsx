@@ -53,6 +53,8 @@ const RootLayout = () => {
     setCart(filteredCart);
   };
 
+  const totalPrice = cart.reduce((acc, cur) => acc + cur.price, 0);
+
   return (
     <CartContext.Provider
       value={{
@@ -62,6 +64,7 @@ const RootLayout = () => {
         handleIncreaseQuantity,
         handleDecreaseQuantity,
         handleRemoveCart,
+        totalPrice,
       }}
     >
       <Navbar />

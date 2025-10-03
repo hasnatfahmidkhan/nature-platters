@@ -1,15 +1,19 @@
-import { Menu, Search, ShoppingCart } from "lucide-react";
+import { Menu, Moon, ShoppingCart, Sun } from "lucide-react";
 import mobileLogo from "/mobile-logo.png";
 import logo from "/logo-green.png";
 import "./navbar.css";
 import { Link, NavLink } from "react-router";
-import { use } from "react";
+import { use, useState } from "react";
 import { CartContext } from "../../Provider/CartContext/CartContext";
 const Navbar = () => {
   const { cart } = use(CartContext);
-
+  const [darkMode, setDarkMode] = useState(false);
   return (
-    <nav className="py-2 bg-base-100 shadow-sm sticky top-0 z-50">
+    <nav
+      className={`py-2 bg-base-100 shadow-sm sticky top-0 z-50 text-black ${
+        darkMode && "dark:bg-slate-800 dark:text-white"
+      }`}
+    >
       <div className="navbar md:w-11/12 2xl:w-10/12 mx-auto">
         <div className="navbar-start">
           <a>
@@ -47,7 +51,16 @@ const Navbar = () => {
             <div className="flex items-center gap-3">
               {/* search icon  */}
               <div>
-                <Search />
+                <label className="flex cursor-pointer gap-2">
+                  <Sun />
+                  <input
+                    onClick={() => setDarkMode(!darkMode)}
+                    type="checkbox"
+                    value="dark"
+                    className="toggle theme-controller"
+                  />
+                  <Moon />
+                </label>
               </div>
               {/* Cart icon  */}
               <Link to="/cart">
