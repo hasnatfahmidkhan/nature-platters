@@ -3,11 +3,16 @@ import mobileLogo from "/mobile-logo.png";
 import logo from "/logo-green.png";
 import "./navbar.css";
 import { Link, NavLink } from "react-router";
-import { use, useState } from "react";
+import { use, useEffect, useState } from "react";
 import { CartContext } from "../../Provider/CartContext/CartContext";
+import { getMode, setMode } from "../../LocalStorage/localStorage";
 const Navbar = () => {
   const { cart } = use(CartContext);
-  const [darkMode, setDarkMode] = useState(false);
+  const [darkMode, setDarkMode] = useState(getMode());
+
+  useEffect(() => {
+    setDarkMode(getMode());
+  }, []);
   return (
     <nav
       className={`py-2 bg-base-100 shadow-sm sticky top-0 z-50 text-black ${
@@ -54,7 +59,9 @@ const Navbar = () => {
                 <label className="flex cursor-pointer gap-2">
                   <Sun />
                   <input
-                    onClick={() => setDarkMode(!darkMode)}
+                    onClick={() => {
+                      setMode(!darkMode, setDarkMode);
+                    }}
                     type="checkbox"
                     value="dark"
                     className="toggle theme-controller"

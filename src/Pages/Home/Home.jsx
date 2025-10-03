@@ -14,14 +14,14 @@ const Home = () => {
         {/* Hero Section  */}
         <section className="bg-gradient-to-b from-[#FFFFFF] to-[#EFEBE3] flex flex-col justify-center items-center pt-10 md:pt-16 xl:pt-32 gap-10">
           <div className="space-y-7.5">
-            <h1 className="text-2xl md:text-6xl font-semibold text-center md:leading-[70px]">
+            <h1 className="text-2xl md:text-6xl font-semibold text-center md:leading-[70px] text-black ">
               Freshness{" "}
               <span className="text-green-600">
                 You Can <br /> Count
               </span>{" "}
               On, Prices You’ll Love!
             </h1>
-            <p className="md:text-xl text-center px-2">
+            <p className="md:text-xl text-center px-2 text-black">
               Shop your daily essentials at unbeatable prices. From fresh
               produce to pantry <br className="hidden md:inline" /> staples,
               we’ve got you covered every day!
