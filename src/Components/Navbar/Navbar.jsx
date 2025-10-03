@@ -3,8 +3,8 @@ import mobileLogo from "/mobile-logo.png";
 import logo from "/logo-green.png";
 import "./navbar.css";
 import { Link, NavLink } from "react-router";
-import { CartContext } from "../../Layouts/RootLayout";
 import { use } from "react";
+import { CartContext } from "../../Provider/CartContext/CartContext";
 const Navbar = () => {
   const { cart } = use(CartContext);
 

@@ -1,5 +1,5 @@
 import React, { use } from "react";
-import { CartContext } from "../../Layouts/RootLayout";
+import { CartContext } from "../../Provider/CartContext/CartContext";
 
 const FoodCard = ({ food }) => {
   const { handleCart } = use(CartContext);

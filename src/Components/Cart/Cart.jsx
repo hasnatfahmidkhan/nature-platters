@@ -1,7 +1,7 @@
 import React, { use } from "react";
 import Container from "../Container/Container";
-import { CartContext } from "../../Layouts/RootLayout";
 import { Minus, Plus, X } from "lucide-react";
+import { CartContext } from "../../Provider/CartContext/CartContext";
 
 const Cart = () => {
   const {
